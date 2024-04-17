@@ -1,0 +1,34 @@
+
+<% if(locals.userEmail){ %>
+
+<h1 class="header">Applicants list</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Contact</th>
+      <th>Resume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% let index = 1; %> <% applicantsList.forEach((applicant)=>{ %>
+  
+    <tr>
+      <td scope="row"><%= index++ %></td>
+      <td><%=applicant.name %></td>
+      <td><%=applicant.email %></td>
+      <td><%=applicant.contactNumber %></td>
+      <td>
+        
+        <a href="/resume/<%=applicant.resumePath%>">View</a>
+      </td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+<%}else{%>
+
+<h1>Only recruiters are allowed to access this page, login as recruiter to constinue</h1>
+<%}%>

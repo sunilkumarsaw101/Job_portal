@@ -1,0 +1,16 @@
+<% if(locals.lastVisit){ %>
+<div class="alert alert-danger text-center" role="alert">
+  You visited last on: <%= locals.lastVisit %>
+</div>
+<%} %>
+<div class="text-center">
+<h1>WELCOME TO OUR JOB PORTAL</h1>
+<a href="/jobs" class="btn btn-info">I'm job seeker</a>
+<% if(locals.userEmail){ %>
+  <a href="/jobs" class="btn btn-info">I'm recruiter</a>
+<% }else{ %>
+
+  <a href="/login" class="btn btn-info">I'm recruiter</a>
+
+<%}%>
+</div>

@@ -1,0 +1,27 @@
+<h1 class="header">JOB DETAILS</h1>
+<p><strong>ID:</strong> <%= job.id %></p>
+<p><strong>Category:</strong> <%= job.jobCategory %></p>
+<p><strong>Designation:</strong> <%= job.jobDesignation %></p>
+<p><strong>Location:</strong> <%= job.jobLocation %></p>
+<p><strong>Company Name:</strong> <%= job.companyName %></p>
+<p><strong>Salary:</strong> <%= job.salary %></p>
+<p><strong>Apply Before:</strong> <%= job.applyBy %></p>
+<p><strong>Skills Required:</strong> <%= job.skillsRequired %></p>
+<p><strong>Number of openings:</strong> <%= job.numberOfOpenings %></p>
+<p><strong>Job posting date:</strong> <%= job.jobPosted %></p>
+
+<a
+  href="/job-details/applicants/list/<%=job.id %>"
+  style="text-decoration: none; color: rgb(215, 20, 85); display: block"
+  ><strong>Applicants:</strong> <%= job.applicants.length %></a
+>
+
+<a href="/job-apply/<%=job.id %>" class="btn btn-success mt-3">Apply</a>
+
+<button
+  type="button"
+  class="btn btn-primary mt-3"
+  onclick="window.location.href='/jobs'"
+>
+  Back To Job List Page
+</button>

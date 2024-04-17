@@ -1,0 +1,43 @@
+<h1 class="header">Apply to this job</h1>
+<% if(errorMessage){  %>
+  <div class="alert alert-danger" role="alert">
+    <%= errorMessage %>
+  </div>
+<%} %>
+<form action="/job-apply/<%= jobId %>" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label for="applicantId">Applicant Id</label>
+    <input type="text" class="form-control" id="applicantId" name="applicantId"  />
+  </div>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <input type="text" class="form-control" id="name" name="name"  />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input type="text" class="form-control" id="email" name="email"  />
+  </div>
+  <div class="form-group">
+    <label for="contactNumber">Contact Number</label>
+    <input type="text" class="form-control" id="contactNumber" name="contactNumber"  />
+  </div>
+  
+  <div class="form-group">
+    <label for="resumePath">Resume Path</label>
+    <!-- <input type="text" class="form-control" id="imageUrl" name="imageUrl"  /> -->
+ 
+    <input type="file" class="form-control" name="resumePath" id="resumePath" accept=".pdf, .doc, .docx">
+  </div>
+
+  <button type="submit" class="btn btn-success">Submit</button>
+  <button
+  type="button"
+  class="btn btn-primary"
+  onclick="window.location.href='/job-Details/<%= jobId %>'"
+>
+Cancel
+</button>
+
+</form>
+

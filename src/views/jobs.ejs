@@ -1,0 +1,63 @@
+<div>
+  <h1 class="header" style="display: inline">JOBS</h1>
+  <button
+    type="button"
+    onclick="searchJob()"
+    class="btn btn-success mt-3"
+    style="float: right"
+  >
+    Search
+  </button>
+  <input
+    type="text"
+    id="inputSearch"
+    class="mt-3 input-lg"
+    style="float: right; border: 2px solid black; height: 38px; width: 300px"
+    placeholder="search job.."
+  />
+</div>
+<table class="table" id="jobTable">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Company Name</th>
+      <th>Category</th>
+      <th>Designation</th>
+      <th>Location</th>     
+      <th>Salary</th>
+      <% if(locals.userEmail){ %>
+      <th class="w-25">Actions</th>
+      <%}else { %>
+      <th>Actions</th>
+      <% } %>
+    </tr>
+  </thead>
+  <tbody>
+    <% jobs.forEach((job)=>{ %>
+      <% console.log('hello',job) %>
+    <tr>
+      <td><%=job.id %></td>
+      <td><%=job.companyName %></td>
+      <td><%=job.jobCategory %></td>
+      <td><%=job.jobDesignation %></td>
+      <td><%=job.jobLocation %></td>
+      <td><%=job.salary %></td>
+      <td>
+        <a href="/job-details/<%=job.id %>" class="btn btn-info">Details</a>
+
+        <% if(locals.userEmail){ %>
+
+        <a href="/jobs/update-job/<%=job.id %>" class="btn btn-warning"
+          >Update</a
+        >
+        <button onclick="deleteJob('<%=job.id %>')" class="btn btn-danger">
+          Delete
+        </button>
+
+        <%} %>
+      </td>
+    </tr>
+
+    <% }) %>
+  </tbody>
+</table>
